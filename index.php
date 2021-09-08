@@ -2,8 +2,8 @@
 include './config/conexion.php';
 
 $querys_schema='SIMA';
-$querys_table='test_table';
-$schemas=['SIMA01', 'SIMA02'];
+$querys_table='control_querys';
+$schemas=array('SIMA01', 'SIMA02');
 
 $result = pg_query($db, 'SELECT * FROM "'.$querys_schema.'".'.$querys_table);
 $querys = pg_fetch_all($result);
@@ -16,7 +16,7 @@ foreach ($schemas as $value) {
 
     $count=1;
     foreach ($querys as $key => $query) {
-        echo $count.' - '.$query['texto'].'<br>';
+        echo $count.' - '.$query['query'].'<br>';
         $result = pg_query($db, $query['texto']);
         $affec_rows = pg_affected_rows($result);
         echo "Filas afectadas: " . $affec_rows."<br>" ;

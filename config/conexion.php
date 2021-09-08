@@ -1,7 +1,7 @@
 <?php
 $host='172.18.0.2';
 $port='5432';
-$db='test';
+$db='DB';
 $user='root';
 $password='root';
 
